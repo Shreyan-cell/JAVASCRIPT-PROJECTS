@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+Creates a faulty calculator using java script 
+This faulty calculator does following:
+1. It takes twoo numbers as input from the user
+2. It performs wrong operations as follows:
++ ---> -
+* ---> +
+- ---> /
+/ ---> **
+
+It performs wrong operations 10% of the times
+*/
+
+//Step 1: Take two numbers and an operator as input
+let num1=parseFloat(prompt("Enter the first number:"));
+let num2=parseFloat(prompt("Enter the Second number:"));
+let operator =prompt("Enter an operator (+, -, *, /):");
+
+// Step 2: Check if calculation should be faulty (10% chance)
+// let isFaulty = Math.random() < 0.1;
+let result;
+
+
+// Step 3: Perform calculation 
+//Faulty Calculation
+if(operator === "+"){
+    result = num1-num2;
+    alert("Faulty Calculation done!");
+}
+else if (operator === "*"){
+    result = num1+num2;
+        alert("Faulty Calculation done!");
+}
+else if(operator === "-"){
+    result=num1/num2;
+        alert("Faulty Calculation done!");
+}
+else if(operator === "/"){
+    result=num1**num2;
+        alert("Faulty Calculation done!");
+}
+else{
+    alert("Invalid!");
+}
+
+
+// Step 4: Show result
+if(result !==undefined){
+    alert("Result (Always Faulty):" + result);
+}
+    </script>
+</body>
+</html>
