@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ .container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    grid-template-rows: repeat(6, 100px); /* 6 rows with 100px height */
+    gap: 10px; /* space between boxes */
+    width: 100%;
+    max-width: 1000px; /* optional, to control full width */
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.box {
+    background-color: lightblue; /* or use JS to randomize */
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="Container">
+        <div class="box">Box-1</div>
+        <div class="box">Box-2</div>
+        <div class="box">Box-3</div>
+        <div class="box">Box-4</div>
+        <div class="box">Box-5</div>
+        <div class="box">Box-1</div>
+        <div class="box">Box-2</div>
+        <div class="box">Box-3</div>
+        <div class="box">Box-4</div>
+        <div class="box">Box-5</div>
+        <div class="box">Box-1</div>
+        <div class="box">Box-2</div>
+        <div class="box">Box-3</div>
+        <div class="box">Box-4</div>
+        <div class="box">Box-5</div>
+        <div class="box">Box-1</div>
+        <div class="box">Box-2</div>
+        <div class="box">Box-3</div>
+        <div class="box">Box-4</div>
+        <div class="box">Box-5</div>
+        <div class="box">Box-1</div>
+        <div class="box">Box-2</div>
+        <div class="box">Box-3</div>
+        <div class="box">Box-4</div>
+        <div class="box">Box-5</div>
+         <div class="box">Box-5</div>
+        <div class="box">Box-1</div>
+        <div class="box">Box-2</div>
+        <div class="box">Box-3</div>
+        <div class="box">Box-4</div>
+        <div class="box">Box-5</div>
+         <div class="box">Box-5</div>
+        <div class="box">Box-1</div>
+        <div class="box">Box-2</div>
+        <div class="box">Box-3</div>
+        <div class="box">Box-4</div>
+        <div class="box">Box-5</div>
+    </div>
+
+   <!-- <script src="colorboxes.js"></script> -->
+<script>
+            /* given 5 boxes, assign a random color and random background for each box using dom concepts  */
+
+
+        console.log("Random color boxes by js")
+let boxes = document.querySelector(".Container").children
+
+function getRandomColor() {
+
+    //ciel is use for non decimal values
+    let val1 = Math.ceil(0 + Math.random()* 255);
+    let val2 = Math.ceil(0 + Math.random()* 255);
+    let val3 = Math.ceil(0 + Math.random()* 255);
+    return `rgb(${val1}, ${val2}, ${val3})`
+}
+
+Array.from(boxes).forEach(e=>{
+    e.style.backgroundColor = getRandomColor();
+        e.style.color = getRandomColor();
+
+});
+</script>
+</body>
+</html>
