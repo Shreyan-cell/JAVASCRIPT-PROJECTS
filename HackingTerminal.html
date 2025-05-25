@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Simulator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url("/image.png"); /* Make sure path is correct */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 35%;
+            left: 37%;
+            width: 70%;
+            z-index: 2;
+            font-size: 30px;
+            color: darkgray;
+        }
+
+        .overlay div {
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: black;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            border-radius: 10px;
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .btn:hover {
+            background-color: #00ff00;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay" id="output">
+        <!-- Hacking messages will appear here -->
+    </div>
+
+    <button class="btn" onclick="main()">HackByShreyan</button>
+
+    <script>
+        const addItem = async (item) => {
+            await randomDelay();
+
+            let div = document.createElement("div");
+            div.innerHTML = item;
+            document.getElementById("output").append(div);
+        }
+
+        const randomDelay = () => {
+            return new Promise((resolve) => {
+                let timeout = 1 + 6 * Math.random();
+                setTimeout(() => {
+                    resolve();
+                }, timeout * 1000);
+            });
+        }
+
+        async function main() {
+            document.querySelector(".btn").style.display = "none"; // Hide button after click
+alert("Your System is hacked by Shreyan after few seconds")
+            let t = setInterval(() => {
+                let last = document.querySelectorAll("#output div");
+                last = last[last.length - 1];
+                if (last && last.innerHTML.endsWith("...")) {
+                    last.innerHTML = last.innerHTML.slice(0, -3);
+                } else if (last) {
+                    last.innerHTML += ".";
+                }
+            }, 90);
+
+            let text = [
+                "Initialized Hacking By Shreyan",
+                "Shreyan is Reading your Files",
+                "Password files Detected is done by Shreyan",
+                "Sending all passwords and personal files to Shreyan's server",
+                "Cleaning up"
+            ];
+
+            for (const item of text) {
+                await addItem(item);
+            }
+
+            await randomDelay();
+            clearInterval(t);
+        }
+        document.title="ShreyanHackingPortal"
+    </script>
+
+</body>
+</html>
