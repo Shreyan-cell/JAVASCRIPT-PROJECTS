@@ -1,0 +1,82 @@
+<!-- Here i use events and shown that how we can fix event bubbling and also how can we set time intervals to different layers -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .child{
+            background-color: aqua;
+            border: 2px solid black;
+            margin: 44px;
+            padding: 44px;
+            cursor: pointer;
+        }
+        .childcontainer{
+             background-color: rgb(72, 0, 255);
+            border: 2px solid black;
+            margin: 44px;
+            padding: 44px;
+            cursor: pointer;
+        }
+        .container{
+             background-color: rgb(255, 0, 4);
+            border: 2px solid black;
+            margin: 44px;
+            cursor: pointer;
+            padding: 44px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        I am a container
+        <section class="childcontainer">
+            I am a childcontainer
+<div class="child">
+I am a child
+</div>
+        </section>
+    </div>
+    <button id="ch">child</button>
+    <button id="chcn">childcontainer</button>
+        <button id="cn">container</button>
+    <script>
+        document.querySelector(".child").addEventListener("click", (e) =>{
+            e.stopPropagation()
+            alert("child is clicked")
+        })
+document.querySelector(".childcontainer").addEventListener("click", (e) =>{
+                e.stopPropagation()
+                alert("childcontainer is clicked")
+        })
+document.querySelector(".container").addEventListener("click", (e) =>{    
+                e.stopPropagation()
+        alert("container is clicked")
+        })
+         
+        function getrandomcolor(){
+          let  val1=Math.ceil(0 + Math.random()* 255)
+                       let val2=Math.ceil(0 + Math.random()* 255)
+          let  val3=Math.ceil(0 + Math.random()* 255)
+            return `rgb(${val1} ${val2} ${val3})`
+
+        }
+    
+        setInterval(() => {
+            document.querySelector(".childcontainer").style.backgroundColor=getrandomcolor()
+        }, 1000);
+        setInterval(() => {
+            document.querySelector(".container").style.backgroundColor=getrandomcolor()
+        }, 1000);
+        setInterval(() => {
+            document.querySelector(".child").style.backgroundColor=getrandomcolor()
+        }, 1000);
+    
+    </script>
+</body>
+</html>
